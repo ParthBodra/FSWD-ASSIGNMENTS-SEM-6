@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parth | Portfolio</title>
+
+<!-- libraries -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+<style>
+html{scroll-behavior:smooth}
+body{
+ background:#050505;
+ color:white;
+ overflow-x:hidden;
+ cursor:none;
+}
+
+/* particles background */
+#particles{
+ position:fixed;
+ width:100%;
+ height:100%;
+ z-index:-1;
+}
+
+/* cursor glow */
+.cursor{
+ position:fixed;
+ width:18px;
+ height:18px;
+ background:#22d3ee;
+ border-radius:50%;
+ pointer-events:none;
+ transform:translate(-50%,-50%);
+ z-index:9999;
+}
+
+/* floating blobs */
+.blob{
+ position:absolute;
+ width:300px;
+ height:300px;
+ background:linear-gradient(45deg,cyan,purple);
+ filter:blur(120px);
+ opacity:0.3;
+ animation:float 10s infinite alternate;
+}
+@keyframes float{
+ from{transform:translateY(-40px)}
+ to{transform:translateY(40px)}
+}
+
+/* glass card */
+.glass{
+ background:rgba(255,255,255,0.08);
+ backdrop-filter:blur(15px);
+}
+
+/* tilt hover */
+.tilt:hover{
+ transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+ transition:0.4s;
+}
+</style>
+</head>
+
+<body>
+
+<!-- loading screen -->
+<div id="loader" class="fixed inset-0 flex items-center justify-center bg-black z-50">
+  <div class="w-16 h-16 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+</div>
+
+<!-- particles -->
+<div id="particles"></div>
+
+<!-- cursor -->
+<div class="cursor" id="cursor"></div>
+
+<!-- blobs -->
+<div class="blob top-10 left-10"></div>
+<div class="blob bottom-10 right-10"></div>
+
+<!-- HERO -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+<h1 class="text-6xl font-bold text-cyan-400 mb-6">Parth Bodra</h1>
+
+<p class="text-xl text-gray-300 mb-8">
+  <span id="typing"></span>
+</p>
+
+<a href="#skills" class="px-8 py-3 bg-cyan-400 text-black rounded-full shadow-lg hover:scale-110 transition">
+Explore
+</a>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="max-w-5xl mx-auto p-8 reveal">
+<h2 class="text-3xl text-center text-purple-400 font-bold mb-10">Skills</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<div class="glass p-6 rounded-xl tilt">HTML</div>
+<div class="glass p-6 rounded-xl tilt">Tailwind</div>
+<div class="glass p-6 rounded-xl tilt">JavaScript</div>
+<div class="glass p-6 rounded-xl tilt">Python</div>
+<div class="glass p-6 rounded-xl tilt">GitHub</div>
+<div class="glass p-6 rounded-xl tilt">UI Design</div>
+<div class="glass p-6 rounded-xl tilt">Responsive</div>
+<div class="glass p-6 rounded-xl tilt">Problem Solving</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="text-center py-20 reveal">
+<h2 class="text-3xl text-cyan-400 font-bold mb-6">Connect</h2>
+<p class="text-gray-300 mb-6">parthb9727@email.com</p>
+</section>
+
+<footer class="text-center text-gray-500 pb-6">
+© 2026 Parth.dev
+</footer>
+
+<script>
+// loader hide
+window.addEventListener("load",()=>{
+ document.getElementById("loader").style.display="none";
+});
+
+// scroll reveal
+ScrollReveal().reveal('.reveal',{
+ distance:'60px',
+ duration:1000,
+ origin:'bottom',
+ interval:200
+});
+
+// cursor glow
+document.addEventListener("mousemove", e=>{
+ const cursor=document.getElementById("cursor");
+ cursor.style.left=e.clientX+"px";
+ cursor.style.top=e.clientY+"px";
+});
+
+// particles
+tsParticles.load("particles", {
+ particles: {
+   number: { value: 60 },
+   color: { value: "#22d3ee" },
+   size: { value: 2 },
+   move: { enable: true, speed: 1 },
+   opacity: { value: 0.5 }
+ }
+});
+
+// typing animation
+new Typed("#typing",{
+ strings:["Future Software Engineer","Tech Creator","UI Enthusiast"],
+ typeSpeed:60,
+ backSpeed:40,
+ loop:true
+});
+
+// tilt effect
+VanillaTilt.init(document.querySelectorAll(".tilt"), {
+ max: 15,
+ speed: 400,
+ glare: true,
+ "max-glare": 0.4,
+});
+</script>
+
+</body>
+</html>
