@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silver Oak TechFest 2026</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<style>
+html{scroll-behavior:smooth}
+
+/* animated gradient background */
+body{
+ background: linear-gradient(-45deg, #020617, #0f172a, #1e293b, #020617);
+ background-size: 400% 400%;
+ animation: gradientMove 12s ease infinite;
+ color:white;
+}
+
+/* gradient animation */
+@keyframes gradientMove {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+}
+
+/* floating glow orbs */
+.orb{
+ position:fixed;
+ width:300px;
+ height:300px;
+ border-radius:50%;
+ filter:blur(120px);
+ opacity:0.25;
+ animation: float 12s infinite alternate ease-in-out;
+ z-index:-1;
+}
+.orb1{ background:cyan; top:10%; left:10%; }
+.orb2{ background:purple; bottom:10%; right:10%; }
+
+@keyframes float{
+ from{transform:translateY(-40px)}
+ to{transform:translateY(40px)}
+}
+
+/* glass cards */
+.glass{
+ background:rgba(255,255,255,0.08);
+ backdrop-filter:blur(12px);
+}
+
+/* hover glow */
+.card:hover{
+ transform:translateY(-10px) scale(1.03);
+ box-shadow:0 0 25px rgba(34,211,238,0.6);
+ transition:0.4s;
+}
+</style>
+</head>
+
+<body>
+
+<!-- glow orbs -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- HERO -->
+<header class="text-center py-24 bg-gradient-to-r from-purple-600 to-cyan-500">
+  <h1 class="text-5xl md:text-6xl font-extrabold">TECH FEST 2026</h1>
+  <p class="mt-4 text-lg">Silver Oak University</p>
+  <p class="text-sm mt-2 opacity-90">Innovation • Technology • Future</p>
+</header>
+
+<!-- ABOUT -->
+<section class="text-center p-10 reveal">
+  <h2 class="text-3xl font-bold text-cyan-400 mb-4">About The Event</h2>
+  <p class="max-w-2xl mx-auto text-gray-300">
+    Silver Oak University's TechFest 2026 brings together innovation,
+    coding excellence, and creative technology. Join students, developers,
+    and tech enthusiasts for an exciting day of learning and competition.
+  </p>
+</section>
+
+<!-- EVENT DETAILS -->
+<section class="p-10 reveal">
+  <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6 text-center">
+
+    <div class="glass p-6 rounded-xl">
+      <h3 class="text-cyan-400 font-bold text-xl">📅 Date</h3>
+      <p class="text-gray-300 mt-2">25 March 2026</p>
+    </div>
+
+    <div class="glass p-6 rounded-xl">
+      <h3 class="text-cyan-400 font-bold text-xl">📍 Venue</h3>
+      <p class="text-gray-300 mt-2">Silver Oak University Auditorium</p>
+    </div>
+
+    <div class="glass p-6 rounded-xl">
+      <h3 class="text-cyan-400 font-bold text-xl">⏰ Time</h3>
+      <p class="text-gray-300 mt-2">10:00 AM Onwards</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="p-10 reveal">
+  <h2 class="text-3xl text-center font-bold text-purple-400 mb-10">Event Schedule</h2>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+    <div class="glass card p-8 rounded-xl text-center">
+      <h3 class="text-xl font-bold">Opening Ceremony</h3>
+      <p class="text-gray-300 mt-2">10:00 AM</p>
+    </div>
+
+    <div class="glass card p-8 rounded-xl text-center">
+      <h3 class="text-xl font-bold">Coding Competition</h3>
+      <p class="text-gray-300 mt-2">12:00 PM</p>
+    </div>
+
+    <div class="glass card p-8 rounded-xl text-center">
+      <h3 class="text-xl font-bold">Prize Distribution</h3>
+      <p class="text-gray-300 mt-2">3:00 PM</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="text-center p-10 reveal">
+  <h2 class="text-3xl font-bold text-cyan-400 mb-6">Event Highlights</h2>
+
+  <div class="space-y-2 text-lg text-gray-300">
+    <p>🔥 National Level Coding Challenge</p>
+    <p>🎤 Guest Speakers from Tech Industry</p>
+    <p>🏆 Exciting Prizes & Certificates</p>
+    <p>🚀 Startup & Innovation Showcase</p>
+    <p>🤝 Networking with Developers</p>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="text-center pb-16 reveal">
+  <a href="#" class="px-10 py-3 bg-cyan-400 text-black rounded-full shadow-lg hover:scale-110 hover:shadow-cyan-400/60 transition">
+    Register Now
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 text-gray-400 border-t border-gray-800">
+  © 2026 Silver Oak University • TechFest
+</footer>
+
+<script>
+ScrollReveal().reveal('.reveal',{
+ distance:'60px',
+ duration:1000,
+ origin:'bottom',
+ interval:200
+})
+</script>
+
+</body>
+</html>
